@@ -1977,7 +1977,7 @@ To qualify for a new class, you must have a score of at least 13 in the primary 
                 {
                     name: "Alchemist",
                     description: `
-                    https://5e.tools/classes.html#artificer_efa,state:sub_alchemist_efa=b1
+                    [Artificer - Alchemist](https://5e.tools/classes.html#artificer_efa,state:sub_alchemist_efa=b1)
 `
                 },
                 {
@@ -2041,7 +2041,14 @@ As a Fighter, you gain the following class features:
    ============================================================ */
 
 let currentMode = "species";
-
+marked.use({
+  renderer: {
+    link({ href, title, text }) {
+      const titleAttr = title ? ` title="${title}"` : '';
+      return `<a href="${href}"${titleAttr} target="_blank" rel="noopener noreferrer">${text}</a>`;
+    }
+  }
+});
 const treeContainer = document.getElementById("tree-container");
 const treeTitle = document.getElementById("tree-title");
 
